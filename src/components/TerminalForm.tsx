@@ -71,7 +71,7 @@ export default function TerminalForm() {
     initialized.current = true;
 
     const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    const bootSequence = [
+    const bootSequence: { type: "system" | "user" | "question"; text: string; time: string; animate?: boolean }[] = [
       { type: "system", text: "SYS_LOAD_COMPLETE", time: now, animate: true },
       { type: "question", text: "Identify yourself. Full name?", time: now, animate: true }
     ];
