@@ -9,7 +9,7 @@ type Step = "name" | "phone" | "email" | "message" | "submitting" | "success";
 // Simplified Typewriter using Framer Motion
 const TypewriterText = ({ text }: { text: string }) => {
   const letters = Array.from(text);
-  const container = {
+  const container: any = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
@@ -17,7 +17,7 @@ const TypewriterText = ({ text }: { text: string }) => {
     }),
   };
 
-  const child = {
+  const child: any = {
     visible: {
       opacity: 1,
       display: "inline",
