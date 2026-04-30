@@ -64,7 +64,12 @@ export default function TerminalForm() {
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const initialized = useRef(false);
+
   useEffect(() => {
+    if (initialized.current) return;
+    initialized.current = true;
+
     const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     const bootSequence = [
       { type: "system", text: "SYS_LOAD_COMPLETE", time: now, animate: true },
