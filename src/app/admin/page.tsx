@@ -36,9 +36,9 @@ export default function AdminDashboard() {
     }
   };
 
-  const totalLeads = leads.length;
-  const activeProjects = leads.filter(l => l.status === "In Progress").length;
-  const closedLeads = leads.filter(l => l.status === "Closed").length;
+  const totalLeads = Array.isArray(leads) ? leads.length : 0;
+  const activeProjects = Array.isArray(leads) ? leads.filter(l => l.status === "In Progress").length : 0;
+  const closedLeads = Array.isArray(leads) ? leads.filter(l => l.status === "Closed").length : 0;
   const conversionRate = totalLeads > 0 ? ((closedLeads / totalLeads) * 100).toFixed(1) : "0";
   
   // Mock revenue calculation: ₹50k per closed lead
@@ -83,7 +83,7 @@ export default function AdminDashboard() {
     },
   ];
 
-  const recentLeads = leads.slice(0, 5);
+  const recentLeads = Array.isArray(leads) ? leads.slice(0, 5) : [];
   return (
     <div className="space-y-10">
       {/* Welcome Section */}
