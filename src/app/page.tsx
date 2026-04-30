@@ -19,8 +19,9 @@ export const metadata = {
   description: "We build high-performance websites and systems that help businesses attract, convert, and grow globally.",
 };
 
-// This makes the page fetch fresh data on every request (Full SSR)
-export const revalidate = 0;
+// This caches the page for 60 seconds but updates it in the background
+// This makes navigation feel instantaneous (Full ISR)
+export const revalidate = 60;
 
 export default async function Home() {
   // Fetch approved testimonials on the server

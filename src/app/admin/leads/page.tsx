@@ -36,7 +36,7 @@ export default function LeadsPage() {
     }
   };
 
-  const filteredLeads = allLeads.filter(lead => {
+  const filteredLeads = Array.isArray(allLeads) ? allLeads.filter(lead => {
     const name = lead.name || "";
     const company = lead.company || "";
     const email = lead.email || "";
@@ -46,7 +46,7 @@ export default function LeadsPage() {
                          email.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = statusFilter === "All" || lead.status === statusFilter;
     return matchesSearch && matchesStatus;
-  });
+  }) : [];
 
   return (
     <div className="space-y-8">
