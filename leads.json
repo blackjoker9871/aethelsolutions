@@ -1,0 +1,24 @@
+[
+  {
+    "name": "reshanth",
+    "email": "sivareshanth9871@gmail.com\\",
+    "message": "",
+    "type": "Terminal Inquiry",
+    "budget": "Not Specified",
+    "id": 1777539618234,
+    "status": "New",
+    "date": "2026-04-30",
+    "company": "Direct Individual"
+  },
+  {
+    "name": "test",
+    "phone": "9944772702",
+    "email": "nil",
+    "message": "",
+    "type": "Compact Terminal Inquiry",
+    "id": 1777540639213,
+    "status": "New",
+    "date": "2026-04-30",
+    "company": "Direct Individual"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "name": "Alex Rivera",
+    "role": "CTO, Nexus Corp",
+    "content": "The performance shift was immediate. Our LCP scores dropped by 60%, and lead conversion skyrocketed within the first week of deployment.",
+    "avatar": "AR",
+    "verified": true,
+    "approved": true,
+    "stars": 5,
+    "date": "2024-04-30"
+  },
+  {
+    "id": 2,
+    "name": "Sarah Chen",
+    "role": "Founder, Zenith AI",
+    "content": "Aethel didn't just build a website; they built a revenue engine. The automation workflows have saved us 20+ hours of manual data entry every week.",
+    "avatar": "SC",
+    "verified": true,
+    "approved": true,
+    "stars": 5,
+    "date": "2024-04-28"
+  }
+]
