@@ -3,10 +3,10 @@ import { supabase } from "@/lib/supabase";
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const { status } = await req.json();
 
     const { data, error } = await supabase
@@ -16,7 +16,7 @@ export async function PATCH(
       .select();
 
     if (error) throw error;
-    return NextResponse.json(data[0]);
+    return NextResponse.json(data ? data[0] : {});
   } catch (error) {
     return NextResponse.json({ error: "Failed to update feedback" }, { status: 500 });
   }
@@ -24,10 +24,10 @@ export async function PATCH(
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
     const { error } = await supabase
       .from('feedback')
