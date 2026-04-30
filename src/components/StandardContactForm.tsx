@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle, AlertCircle, Phone, Mail, User, MessageSquare } from "lucide-react";
+import { Send, CheckCircle, AlertCircle, Phone, Mail, User, MessageSquare, Cpu } from "lucide-react";
 
 export default function StandardContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
