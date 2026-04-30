@@ -38,6 +38,7 @@ export default function Navbar() {
   }, [pathname]);
 
   const navLinks = [
+    { label: "Home", id: "hero" },
     { label: "Services", id: "services" },
     { label: "Work", href: "/work" },
     { label: "Pricing", id: "pricing" },
