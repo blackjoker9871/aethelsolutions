@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+:root {
+  --color-pearl: #F7F6F2;
+  --color-white: #FFFFFF;
+  --color-deep-indigo: #17152F;
+  --color-aethel-violet: #6D4AFF;
+  --color-electric-violet: #8B6CFF;
+  --color-soft-lavender: #EEEAFF;
+  
+  --background: #F7F6F2;
+  --foreground: #17152F;
+  
+  --font-geist-sans: var(--font-geist-sans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif);
+  --font-geist-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+}
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-pearl: #F7F6F2;
+  --color-deep-indigo: #17152F;
+  --color-aethel-violet: #6D4AFF;
+  --color-electric-violet: #8B6CFF;
+  --color-soft-lavender: #EEEAFF;
+}
+
+html {
+  font-family: var(--font-geist-sans);
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F7F6F2;
+  color: #17152F;
+  font-family: var(--font-geist-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ✦ 1. UNIVERSAL RESTRAINED VIOLET FOCUS STYLES ✦ */
+:focus-visible {
+  outline: 2px solid #6D4AFF !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(109, 74, 255, 0.18) !important;
+}
+
+/* ✦ 2. REDUCED MOTION SUPPORT ✦ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ✦ 3. AETHEL BRAND DESIGN SYSTEM (Pearl + Deep Indigo + Aethel Violet) ✦ */
+
+/* Glass & Neomorphic Tactile Surfaces */
+.glass-pearl {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(109, 74, 255, 0.12);
+  box-shadow: 
+    0 4px 20px -2px rgba(23, 21, 47, 0.04),
+    0 1px 3px rgba(23, 21, 47, 0.02);
+}
+
+.glass-pearl-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(238, 234, 255, 0.9);
+  box-shadow: 
+    0 8px 24px -4px rgba(23, 21, 47, 0.04),
+    0 2px 6px -1px rgba(23, 21, 47, 0.02);
+}
+
+.neu-flat {
+  background: #FFFFFF;
+  box-shadow: 6px 6px 16px #E5E4DE, -6px -6px 16px #FFFFFF;
+  border: 1px solid rgba(238, 234, 255, 0.8);
+}
+
+.neu-flat-interactive {
+  background: #FFFFFF;
+  box-shadow: 6px 6px 16px #E5E4DE, -6px -6px 16px #FFFFFF;
+  border: 1px solid rgba(238, 234, 255, 0.8);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.neu-flat-interactive:hover {
+  box-shadow: 10px 10px 24px #DDDCD5, -10px -10px 24px #FFFFFF;
+  border-color: rgba(109, 74, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.neu-flat-sm {
+  background: #FFFFFF;
+  box-shadow: 3px 3px 8px #E5E4DE, -3px -3px 8px #FFFFFF;
+  border: 1px solid rgba(238, 234, 255, 0.6);
+}
+
+.neu-inset {
+  background: #F1F0EA;
+  box-shadow: inset 2.5px 2.5px 5px #E2E1DA, inset -2.5px -2.5px 5px #FFFFFF;
+  border: 1px solid rgba(238, 234, 255, 0.5);
+}
+
+.neu-inset-sm {
+  background: #F1F0EA;
+  box-shadow: inset 1.5px 1.5px 3px #E2E1DA, inset -1.5px -1.5px 3px #FFFFFF;
+  border: 1px solid rgba(238, 234, 255, 0.4);
+}
+
+.neu-core-panel {
+  background: linear-gradient(145deg, #FFFFFF 0%, #F8F7F4 100%);
+  box-shadow: 
+    16px 16px 36px #E0DFD8, 
+    -16px -16px 36px #FFFFFF,
+    inset 1px 1px 2px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(238, 234, 255, 0.7);
+}
+
+.neu-button-violet {
+  background: linear-gradient(135deg, #6D4AFF 0%, #5332DB 100%);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(109, 74, 255, 0.35), -3px -3px 8px #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.neu-button-violet:hover {
+  background: linear-gradient(135deg, #8B6CFF 0%, #6D4AFF 100%);
+  box-shadow: 0 8px 26px rgba(109, 74, 255, 0.45), -4px -4px 12px #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.neu-button-light {
+  background: #FFFFFF;
+  color: #17152F;
+  box-shadow: 4px 4px 12px #E5E4DE, -4px -4px 12px #FFFFFF;
+  border: 1px solid rgba(238, 234, 255, 0.8);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.neu-button-light:hover {
+  border-color: rgba(109, 74, 255, 0.4);
+  color: #6D4AFF;
+  box-shadow: 6px 6px 16px #DCDAD2, -6px -6px 16px #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* Subtle Technical Grid Overlay with Aethel Violet tint */
+.bg-tech-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(109, 74, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(109, 74, 255, 0.035) 1px, transparent 1px);
+}
+
+/* Radial Halos */
+.radial-violet-glow {
+  background: radial-gradient(circle at center, rgba(109, 74, 255, 0.12) 0%, rgba(139, 108, 255, 0.05) 35%, transparent 70%);
+}
+
+.radial-violet-halo {
+  background: radial-gradient(circle, rgba(109, 74, 255, 0.08) 0%, transparent 65%);
+}
+
+/* Beam Flow */
+@keyframes beam-flow {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-beam-flow {
+  stroke-dasharray: 6 6;
+  animation: beam-flow 2.2s linear infinite;
+}
+
+/* Float Drifts */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+.animate-float-slow {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F6F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #EEEAFF;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6D4AFF;
+}
