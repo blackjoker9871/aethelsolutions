@@ -132,15 +132,15 @@ export const AboutHero: React.FC = () => {
                 const Icon = orbital.icon;
 
                 const angleRad = (orbital.angle * Math.PI) / 180;
-                const radius = 190;
-                const x = Math.cos(angleRad) * radius;
-                const y = Math.sin(angleRad) * radius;
+                const radius = 210;
+                const x = Math.round(Math.cos(angleRad) * radius);
+                const y = Math.round(Math.sin(angleRad) * radius);
 
                 return (
                   <React.Fragment key={orbital.id}>
                     {/* SVG Connecting Ray */}
                     <svg
-                      className="hidden sm:block absolute inset-0 w-full h-full pointer-events-none z-10"
+                      className="hidden sm:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none z-10"
                       viewBox="-250 -250 500 500"
                     >
                       <line
@@ -156,21 +156,23 @@ export const AboutHero: React.FC = () => {
 
                     {/* Node Button (Desktop Floating Position) */}
                     <motion.button
+                      type="button"
                       onClick={() => setActiveOrbitalId(orbital.id)}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, scale: 0.8, x: x, y: y, translateX: "-50%", translateY: "-50%" }}
+                      animate={{ opacity: 1, scale: isSelected ? 1.08 : 1, x: x, y: y, translateX: "-50%", translateY: "-50%" }}
                       transition={{ duration: 0.5, delay: idx * 0.08 }}
                       style={{
-                        transform: `translate(${x}px, ${y}px)`,
+                        left: "50%",
+                        top: "50%",
                       }}
-                      className={`hidden sm:flex absolute z-20 items-center gap-2 px-3.5 py-2 rounded-2xl cursor-pointer transition-all duration-300 select-none ${
+                      className={`hidden sm:flex absolute z-30 items-center gap-2 px-3.5 py-2 rounded-2xl cursor-pointer transition-shadow duration-300 select-none ${
                         isSelected
-                          ? "neu-flat border-2 border-[#6D4AFF] shadow-[0_6px_20px_rgba(109,74,255,0.25)] scale-110"
-                          : "neu-flat-interactive hover:border-[#6D4AFF]/40"
+                          ? "neu-flat border-2 border-[#6D4AFF] shadow-[0_6px_20px_rgba(109,74,255,0.25)] bg-white"
+                          : "neu-flat-interactive hover:border-[#6D4AFF]/40 bg-white/90"
                       }`}
                     >
                       <div
-                        className={`w-6 h-6 rounded-lg flex items-center justify-center ${
+                        className={`w-6 h-6 rounded-lg flex items-center justify-center transition-colors ${
                           isSelected
                             ? "bg-[#6D4AFF] text-white"
                             : "neu-inset-sm text-[#6D4AFF]"
