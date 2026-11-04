@@ -72,7 +72,7 @@ export const HeroSection: React.FC = () => {
             >
               {/* Primary CTA - Aethel Violet Tactile Button */}
               <a
-                href="#build"
+                href="/contact"
                 className="group relative inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-bold tracking-wide neu-button-violet rounded-full cursor-pointer shadow-[0_4px_16px_rgba(109,74,255,0.35)]"
               >
                 <span>BUILD MY SYSTEM</span>
@@ -83,10 +83,10 @@ export const HeroSection: React.FC = () => {
 
               {/* Secondary CTA - Soft White Neomorphic Button */}
               <a
-                href="#how-it-works"
+                href="#what-we-build"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-[#17152F] neu-button-light rounded-full cursor-pointer"
               >
-                <span>SEE HOW AETHEL WORKS</span>
+                <span>EXPLORE SYSTEMS</span>
               </a>
             </motion.div>
 

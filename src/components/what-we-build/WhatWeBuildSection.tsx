@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   Bot,
@@ -9,14 +10,9 @@ import {
   Mic,
   MessageSquare,
   ScanEye,
-  Sparkles,
   ArrowRight,
-  ShieldCheck,
-  Layers,
-  ChevronRight,
   Cpu,
 } from "lucide-react";
-import { AethelSystemConsole } from "./AethelSystemConsole";
 import { BuildModuleCard, BuildModuleData } from "./BuildModuleCard";
 
 const MODULES_DATA: BuildModuleData[] = [
@@ -88,7 +84,7 @@ export const WhatWeBuildSection: React.FC = () => {
   return (
     <section
       id="what-we-build"
-      className="relative w-full py-24 sm:py-32 bg-[#F7F6F2] text-[#17152F] overflow-hidden bg-tech-grid border-t border-[#EEEAFF]/80"
+      className="relative w-full py-20 sm:py-28 bg-[#F7F6F2] text-[#17152F] overflow-hidden bg-tech-grid border-t border-[#EEEAFF]/80"
     >
       {/* Background Soft Pearl & Violet Radial Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[700px] radial-violet-halo pointer-events-none -z-10" />
@@ -96,11 +92,10 @@ export const WhatWeBuildSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         
         {/* ✦ TOP EDITORIAL HEADER & POSITIONING ✦ */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16 sm:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-12 sm:mb-16">
           
           {/* Left Column: Headline & Value Proposition */}
-          <div className="lg:col-span-6 space-y-5 sm:space-y-6">
-            
+          <div className="lg:col-span-7 space-y-4 sm:space-y-5">
             {/* Eyebrow */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -112,7 +107,7 @@ export const WhatWeBuildSection: React.FC = () => {
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full neu-inset-sm text-[#6D4AFF]">
                 <span className="w-2 h-2 rounded-full bg-[#6D4AFF]" />
                 <span className="text-[11px] font-mono font-bold tracking-widest uppercase">
-                  AETHEL SYSTEMS
+                  WHAT WE BUILD
                 </span>
               </div>
             </motion.div>
@@ -142,144 +137,60 @@ export const WhatWeBuildSection: React.FC = () => {
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-base sm:text-lg text-[#17152F]/75 leading-relaxed font-normal max-w-xl"
             >
-              From AI agents to complete business software, we combine the technologies your business needs into one intelligent system.
+              From autonomous AI agents to bespoke operational platforms, we engineer integrated software and automation systems tailored around your exact operations.
             </motion.p>
           </div>
 
-          {/* Right Column: Key Capability Highlights Callout */}
+          {/* Right Column: Clean Architecture Highlight */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            className="lg:col-span-6 neu-flat p-6 sm:p-7 rounded-3xl space-y-4"
+            className="lg:col-span-5 flex flex-col sm:items-end justify-end space-y-3"
           >
-            <div className="flex items-center justify-between text-xs font-mono">
-              <div className="flex items-center gap-2 text-[#6D4AFF] font-bold">
-                <Cpu className="w-4 h-4" />
-                <span>UNIFIED ARCHITECTURE METRIC</span>
+            <div className="neu-flat p-5 rounded-2xl space-y-2 w-full sm:max-w-md">
+              <div className="flex items-center justify-between text-xs font-mono">
+                <span className="text-[#6D4AFF] font-bold flex items-center gap-1.5">
+                  <Cpu className="w-3.5 h-3.5" /> ARCHITECTURAL STANDARD
+                </span>
+                <span className="text-emerald-600 font-bold">100% Bespoke</span>
               </div>
-              <span className="px-2.5 py-1 rounded-full neu-inset-sm text-[10px] text-emerald-600 font-bold">
-                100% Bespoke
-              </span>
-            </div>
-            <p className="text-sm text-[#17152F]/80 leading-relaxed">
-              We don&apos;t force generic templates or off-the-shelf subscriptions. Every layer is custom-engineered to seamlessly wrap around your actual day-to-day operations.
-            </p>
-            <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-[#EEEAFF] text-[11px] font-mono text-[#17152F]/70">
-              <span className="flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#6D4AFF]" /> Zero Vendor Lock-in
-              </span>
-              <span className="text-zinc-300">•</span>
-              <span className="flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Real-time Integration
-              </span>
-              <span className="text-zinc-300">•</span>
-              <span className="flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-500" /> Enterprise Reliability
-              </span>
+              <p className="text-xs text-[#17152F]/75 leading-relaxed">
+                Zero generic templates. Deterministic workflows, real-time sync, and total operational ownership.
+              </p>
             </div>
           </motion.div>
-
         </div>
 
-        {/* ✦ CENTRAL HARDWARE CONTROL CONSOLE ✦ */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14 sm:mb-16"
-        >
-          <AethelSystemConsole
-            activeModuleId={activeModuleId}
-            onSelectModule={(id) => setActiveModuleId(id)}
-            modules={MODULES_DATA}
-          />
-        </motion.div>
-
-        {/* ✦ 6 MODULAR BUILD TECHNOLOGY COMPONENTS ✦ */}
-        <div className="space-y-6 sm:space-y-8">
-          
-          {/* Subheading */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-[#EEEAFF] pb-5">
-            <div>
-              <div className="text-[11px] font-mono font-bold tracking-widest text-[#6D4AFF] uppercase mb-1">
-                SIX CORE CAPABILITY LAYERS
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#17152F]">
-                Engineered Modules
-              </h3>
-            </div>
-            <div className="text-xs font-mono text-[#17152F]/60">
-              CLICK ANY MODULE TO ENGAGE CONSOLE
-            </div>
-          </div>
-
-          {/* Grid of 6 Modules (3 Columns on Desktop, 2 on Tablet, 1 on Mobile) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-            {MODULES_DATA.map((module, index) => (
-              <BuildModuleCard
-                key={module.id}
-                module={module}
-                isActive={activeModuleId === module.id}
-                onSelect={() => setActiveModuleId(module.id)}
-                index={index}
-              />
-            ))}
-          </div>
-
+        {/* ✦ 6 CORE MODULE CARDS GRID ✦ */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+          {MODULES_DATA.map((module, index) => (
+            <BuildModuleCard
+              key={module.id}
+              module={module}
+              isActive={activeModuleId === module.id}
+              onSelect={() => setActiveModuleId(module.id)}
+              index={index}
+            />
+          ))}
         </div>
 
-        {/* ✦ BOTTOM SECTION STATEMENT ✦ */}
+        {/* ✦ SIMPLE CLEAN LINK TO DEEP DIVE ✦ */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-20 sm:mt-28 p-8 sm:p-12 rounded-3xl neu-flat text-center max-w-4xl mx-auto space-y-4"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 sm:mt-16 text-center"
         >
-          <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#17152F] tracking-tight leading-snug">
-            &quot;Your business doesn&apos;t need another tool.
-            <br />
-            It needs the{" "}
-            <span className="text-[#6D4AFF] underline decoration-[#6D4AFF]/40 underline-offset-6">
-              right system
-            </span>
-            .&quot;
-          </p>
-
-          <p className="text-xs sm:text-sm font-mono text-[#17152F]/60 pt-1">
-            INDIVIDUAL TECHNOLOGIES → CONNECTED INTELLIGENCE → ONE BUSINESS SYSTEM
-          </p>
-        </motion.div>
-
-        {/* ✦ BOTTOM CTAS ✦ */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          {/* Primary CTA */}
-          <a
-            href="#contact"
-            className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold tracking-wide neu-button-violet rounded-full cursor-pointer shadow-[0_6px_24px_rgba(109,74,255,0.35)] w-full sm:w-auto"
+          <Link
+            href="/systems"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full neu-button-light font-mono text-xs font-bold text-[#17152F] hover:text-[#6D4AFF] transition-all group"
           >
-            <span>BUILD MY SYSTEM</span>
-            <span className="text-[#EEEAFF] group-hover:text-white group-hover:translate-x-1 transition-transform">
-              →
-            </span>
-          </a>
-
-          {/* Secondary CTA */}
-          <a
-            href="#what-we-build"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold tracking-wide neu-button-light rounded-full cursor-pointer w-full sm:w-auto text-[#17152F]"
-          >
-            <span>EXPLORE OUR CAPABILITIES</span>
-          </a>
+            <span>EXPLORE DEEP SYSTEMS ARCHITECTURE</span>
+            <ArrowRight className="w-4 h-4 text-[#6D4AFF] group-hover:translate-x-1 transition-transform" />
+          </Link>
         </motion.div>
 
       </div>

@@ -8,8 +8,6 @@ import { FeaturedProjectCard } from "./FeaturedProjectCard";
 import { ProjectRadioWarehouse } from "./ProjectRadioWarehouse";
 import { ProjectPlantaris } from "./ProjectPlantaris";
 import { ProjectArchiveSection } from "./ProjectArchiveSection";
-import { BehindTheWorkSection } from "./BehindTheWorkSection";
-import { WorkCTA } from "./WorkCTA";
 
 const ProjectDetailModal = dynamic(
   () => import("./ProjectDetailModal").then((mod) => mod.ProjectDetailModal),
@@ -75,13 +73,7 @@ export const WorkPageContent: React.FC = () => {
       {/* 4. Project Archive (Coming to the Archive) */}
       <ProjectArchiveSection />
 
-      {/* 5. Behind The Work (The Aethel Approach) */}
-      <BehindTheWorkSection />
-
-      {/* 6. Work CTA */}
-      <WorkCTA />
-
-      {/* 7. Deep-Dive Case Study Journal Modal (Lazy-loaded) */}
+      {/* 5. Deep-Dive Case Study Journal Modal (Lazy-loaded) */}
       {modalProjectId && (
         <ProjectDetailModal
           projectId={modalProjectId}

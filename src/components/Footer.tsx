@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowUpRight,
@@ -20,7 +21,10 @@ import {
 } from "lucide-react";
 import { analytics } from "@/lib/analytics";
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC<{ hideCta?: boolean }> = ({ hideCta }) => {
+  const pathname = usePathname();
+  const showCta = !hideCta && pathname !== "/contact";
+
   // Mobile accordion state for navigation link groups
   const [openSection, setOpenSection] = useState<string | null>(null);
 
@@ -46,7 +50,7 @@ export const Footer: React.FC = () => {
 
   const companyLinks = [
     { name: "ABOUT AETHEL", href: "/about" },
-    { name: "OUR METHOD", href: "/#method" },
+    { name: "OUR METHOD", href: "/systems" },
     { name: "OUR WORK", href: "/work" },
     { name: "CONTACT", href: "/contact" },
     { name: "GRIEVANCE & SUPPORT", href: "/grievance" },
@@ -61,59 +65,61 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         
         {/* ✦ 1. LARGE FINAL CTA SECTION ✦ */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-3xl sm:rounded-[36px] p-8 sm:p-14 lg:p-18 neu-flat border-2 border-[#6D4AFF]/20 shadow-[0_16px_48px_rgba(109,74,255,0.12)] text-center space-y-8 mb-20 sm:mb-28 overflow-hidden"
-        >
-          {/* Subtle Ambient Radial Highlight */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#EEEAFF]/40 via-transparent to-transparent pointer-events-none" />
+        {showCta && (
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="relative rounded-3xl sm:rounded-[36px] p-8 sm:p-14 lg:p-18 neu-flat border-2 border-[#6D4AFF]/20 shadow-[0_16px_48px_rgba(109,74,255,0.12)] text-center space-y-8 mb-20 sm:mb-28 overflow-hidden"
+          >
+            {/* Subtle Ambient Radial Highlight */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#EEEAFF]/40 via-transparent to-transparent pointer-events-none" />
 
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-inset text-[#6D4AFF]">
-            <Sparkles className="w-3.5 h-3.5 text-[#6D4AFF]" />
-            <span className="text-[11px] font-mono font-bold tracking-widest uppercase">
-              READY TO BUILD?
-            </span>
-          </div>
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-inset text-[#6D4AFF]">
+              <Sparkles className="w-3.5 h-3.5 text-[#6D4AFF]" />
+              <span className="text-[11px] font-mono font-bold tracking-widest uppercase">
+                READY TO BUILD?
+              </span>
+            </div>
 
-          {/* Headline */}
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#17152F] leading-[1.05] max-w-4xl mx-auto">
-            YOUR BUSINESS.
-            <br />
-            YOUR SYSTEM.
-            <br />
-            <span className="text-[#6D4AFF]">THE NEXT ORDER.</span>
-          </h2>
+            {/* Headline */}
+            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#17152F] leading-[1.05] max-w-4xl mx-auto">
+              YOUR BUSINESS.
+              <br />
+              YOUR SYSTEM.
+              <br />
+              <span className="text-[#6D4AFF]">THE NEXT ORDER.</span>
+            </h2>
 
-          {/* Supporting text */}
-          <p className="text-base sm:text-xl font-medium text-[#17152F]/75 max-w-xl mx-auto leading-relaxed">
-            Tell us what your business needs to do better.
-          </p>
+            {/* Supporting text */}
+            <p className="text-base sm:text-xl font-medium text-[#17152F]/75 max-w-xl mx-auto leading-relaxed">
+              Tell us what your business needs to do better.
+            </p>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link
-              href="/contact"
-              onClick={() => analytics.trackCTA("START A PROJECT", "footer_cta_banner", "/contact")}
-              className="w-full sm:w-auto px-8 py-4 rounded-full neu-button-violet text-xs font-mono font-bold tracking-wider flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(109,74,255,0.4)] hover:scale-105 transition-all"
-            >
-              <span>START A PROJECT</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <Link
+                href="/contact"
+                onClick={() => analytics.trackCTA("START A PROJECT", "footer_cta_banner", "/contact")}
+                className="w-full sm:w-auto px-8 py-4 rounded-full neu-button-violet text-xs font-mono font-bold tracking-wider flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(109,74,255,0.4)] hover:scale-105 transition-all"
+              >
+                <span>START A PROJECT</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
 
-            <Link
-              href="/systems"
-              onClick={() => analytics.trackCTA("EXPLORE OUR SYSTEMS", "footer_cta_banner", "/systems")}
-              className="w-full sm:w-auto px-8 py-4 rounded-full neu-button-light text-xs font-mono font-bold tracking-wider text-[#17152F] flex items-center justify-center gap-2 hover:text-[#6D4AFF] transition-all"
-            >
-              <Cpu className="w-4 h-4 text-[#6D4AFF]" />
-              <span>EXPLORE OUR SYSTEMS →</span>
-            </Link>
-          </div>
-        </motion.div>
+              <Link
+                href="/systems"
+                onClick={() => analytics.trackCTA("EXPLORE OUR SYSTEMS", "footer_cta_banner", "/systems")}
+                className="w-full sm:w-auto px-8 py-4 rounded-full neu-button-light text-xs font-mono font-bold tracking-wider text-[#17152F] flex items-center justify-center gap-2 hover:text-[#6D4AFF] transition-all"
+              >
+                <Cpu className="w-4 h-4 text-[#6D4AFF]" />
+                <span>EXPLORE OUR SYSTEMS →</span>
+              </Link>
+            </div>
+          </motion.div>
+        )}
 
         {/* ✦ 2. MAIN FOOTER (IDENTITY + 4 COLUMNS) ✦ */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 pb-16 border-b border-[#EEEAFF]">

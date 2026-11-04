@@ -1,17 +1,8 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { AboutHero } from "@/components/about-page/AboutHero";
-import { OurOriginSection } from "@/components/about-page/OurOriginSection";
-import { AethelBeliefSection } from "@/components/about-page/AethelBeliefSection";
 import { PhilosophyPrinciplesSection } from "@/components/about-page/PhilosophyPrinciplesSection";
-import { AethelAISection } from "@/components/about-page/AethelAISection";
-import { CapabilityMapSection } from "@/components/about-page/CapabilityMapSection";
 import { LeadershipTeamSection } from "@/components/about-page/LeadershipTeamSection";
-import { TeamModelSection } from "@/components/about-page/TeamModelSection";
-import { FutureVisionSection } from "@/components/about-page/FutureVisionSection";
-import { AethelStandardSection } from "@/components/about-page/AethelStandardSection";
-import { BrandStatementSection } from "@/components/about-page/BrandStatementSection";
-import { AboutCTA } from "@/components/about-page/AboutCTA";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { constructMetadata, getBreadcrumbSchema } from "@/lib/seo";
@@ -41,17 +32,8 @@ export default function AboutPage() {
       <JsonLd data={breadcrumbSchema} />
       <Navbar />
       <AboutHero />
-      <OurOriginSection />
-      <AethelBeliefSection />
       <PhilosophyPrinciplesSection />
-      <AethelAISection />
-      <CapabilityMapSection />
       <LeadershipTeamSection />
-      <TeamModelSection />
-      <FutureVisionSection />
-      <AethelStandardSection />
-      <BrandStatementSection />
-      <AboutCTA />
       <Footer />
     </main>
   );

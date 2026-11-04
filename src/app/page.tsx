@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/hero/HeroSection";
-import { ProblemSection } from "@/components/problem/ProblemSection";
-import { SolutionSection } from "@/components/solution/SolutionSection";
 import { WhatWeBuildSection } from "@/components/what-we-build/WhatWeBuildSection";
-import { MethodSection } from "@/components/method/MethodSection";
-import { IndustriesSection } from "@/components/industries/IndustriesSection";
 import { WorkSection } from "@/components/work/WorkSection";
 import { Footer } from "@/components/Footer";
 import { constructMetadata } from "@/lib/seo";
@@ -32,11 +28,7 @@ export default function Home() {
     <main id="main-content" className="relative min-h-screen bg-[#F7F6F2] text-[#17152F] flex flex-col justify-between">
       <Navbar />
       <HeroSection />
-      <ProblemSection />
-      <SolutionSection />
       <WhatWeBuildSection />
-      <MethodSection />
-      <IndustriesSection />
       <WorkSection />
       <Footer />
     </main>
