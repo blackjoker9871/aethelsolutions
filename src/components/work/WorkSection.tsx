@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Sparkles, ArrowRight, ShieldCheck, Eye, Layers } from "lucide-react";
+import { Sparkles, ArrowRight } from "lucide-react";
 import { CaseStudyCard, CaseStudyData } from "./CaseStudyCard";
 
 const PROJECTS_DATA: CaseStudyData[] = [
@@ -165,23 +166,8 @@ export const WorkSection: React.FC = () => {
 
         </div>
 
-        {/* ✦ STICKY/FAST PROJECT NAVIGATION PILL ✦ */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 sticky top-20 z-30 py-2">
-          <div className="p-1.5 rounded-full neu-inset bg-white/95 backdrop-blur-md flex flex-wrap items-center gap-1 shadow-md border border-[#EEEAFF]/80">
-            {PROJECTS_DATA.map((proj) => (
-              <a
-                key={proj.id}
-                href={`#project-${proj.id}`}
-                className="px-3.5 py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold transition-all neu-flat-sm text-[#17152F]/80 hover:text-[#6D4AFF] hover:border-[#6D4AFF]/40"
-              >
-                {proj.num} {proj.title}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* ✦ 3 ALTERNATING CASE STUDY BLOCKS ✦ */}
-        <div className="space-y-12 sm:space-y-20">
+        {/* ✦ CASE STUDY SHOWCASE ✦ */}
+        <div className="space-y-12 sm:space-y-16">
           {PROJECTS_DATA.map((project, index) => (
             <CaseStudyCard
               key={project.id}
@@ -191,46 +177,21 @@ export const WorkSection: React.FC = () => {
           ))}
         </div>
 
-        {/* ✦ BOTTOM SECTION CLOSING & CTAS ✦ */}
+        {/* ✦ CLEAN LINK TO WORK ARCHIVE ✦ */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-20 sm:mt-28 p-8 sm:p-12 rounded-3xl neu-core-panel flex flex-col items-center justify-center text-center space-y-4 max-w-3xl mx-auto"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 sm:mt-16 text-center"
         >
-          <div className="w-10 h-10 rounded-2xl neu-inset-sm flex items-center justify-center mb-1 text-[#6D4AFF]">
-            <Sparkles className="w-5 h-5" />
-          </div>
-
-          <h3 className="text-2xl sm:text-4xl font-extrabold text-[#17152F] tracking-tight">
-            THE NEXT SYSTEM COULD BE YOURS.
-          </h3>
-
-          <p className="text-sm sm:text-base text-[#17152F]/70 font-mono max-w-md">
-            Have a business process that is slowing you down? Let&apos;s understand it.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-3 w-full sm:w-auto">
-            {/* Primary Action */}
-            <a
-              href="#contact"
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold tracking-wide neu-button-violet rounded-full cursor-pointer shadow-[0_6px_24px_rgba(109,74,255,0.35)] w-full sm:w-auto"
-            >
-              <span>START A PROJECT</span>
-              <span className="text-[#EEEAFF] group-hover:text-white group-hover:translate-x-1 transition-transform">
-                →
-              </span>
-            </a>
-
-            {/* Secondary Action */}
-            <a
-              href="#selected-work"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold tracking-wide neu-button-light rounded-full cursor-pointer w-full sm:w-auto text-[#17152F]"
-            >
-              <span>DISCUSS YOUR IDEA</span>
-            </a>
-          </div>
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full neu-button-light font-mono text-xs font-bold text-[#17152F] hover:text-[#6D4AFF] transition-all group"
+          >
+            <span>EXPLORE FULL CASE STUDIES & ARCHIVE</span>
+            <ArrowRight className="w-4 h-4 text-[#6D4AFF] group-hover:translate-x-1 transition-transform" />
+          </Link>
         </motion.div>
 
       </div>

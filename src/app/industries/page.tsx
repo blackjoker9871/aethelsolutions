@@ -3,9 +3,6 @@ import { Navbar } from "@/components/Navbar";
 import { IndustriesHero } from "@/components/industries-page/IndustriesHero";
 import { IndustryDiagnosticConsole } from "@/components/industries-page/IndustryDiagnosticConsole";
 import { OneEngineeringApproach } from "@/components/industries-page/OneEngineeringApproach";
-import { IndustryToSystemComparison } from "@/components/industries-page/IndustryToSystemComparison";
-import { NotATemplateSection } from "@/components/industries-page/NotATemplateSection";
-import { IndustriesCTA } from "@/components/industries-page/IndustriesCTA";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { constructMetadata, getBreadcrumbSchema } from "@/lib/seo";
@@ -38,9 +35,6 @@ export default function IndustriesPage() {
       <IndustriesHero />
       <IndustryDiagnosticConsole />
       <OneEngineeringApproach />
-      <IndustryToSystemComparison />
-      <NotATemplateSection />
-      <IndustriesCTA />
       <Footer />
     </main>
   );

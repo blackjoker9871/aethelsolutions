@@ -37,7 +37,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     num: "03",
-    name: "VISHATH",
+    name: "VISHANTH",
     role: "TECH LEAD",
     focus: "Technical Architecture & Core Systems",
     details:

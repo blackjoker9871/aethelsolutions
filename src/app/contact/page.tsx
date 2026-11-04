@@ -3,9 +3,6 @@ import { Navbar } from "@/components/Navbar";
 import { ContactHero } from "@/components/contact-page/ContactHero";
 import { ProjectIntakeForm } from "@/components/contact-page/ProjectIntakeForm";
 import { DirectContactSidebar } from "@/components/contact-page/DirectContactSidebar";
-import { HowWeStartSection } from "@/components/contact-page/HowWeStartSection";
-import { NotSureWhatYouNeedSection } from "@/components/contact-page/NotSureWhatYouNeedSection";
-import { ContactClosingManifesto } from "@/components/contact-page/ContactClosingManifesto";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { constructMetadata, getBreadcrumbSchema } from "@/lib/seo";
@@ -37,9 +34,6 @@ export default function ContactPage() {
       <ContactHero />
       <ProjectIntakeForm />
       <DirectContactSidebar />
-      <HowWeStartSection />
-      <NotSureWhatYouNeedSection />
-      <ContactClosingManifesto />
       <Footer />
     </main>
   );

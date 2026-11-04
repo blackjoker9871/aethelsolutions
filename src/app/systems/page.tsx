@@ -2,12 +2,8 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { SystemsHero } from "@/components/systems-page/SystemsHero";
 import { SystemArchitectureSection } from "@/components/systems-page/SystemArchitectureSection";
-import { CoreCapabilitiesConsole } from "@/components/systems-page/CoreCapabilitiesConsole";
-import { SystemBuilderSection } from "@/components/systems-page/SystemBuilderSection";
 import { ExampleSystemsSection } from "@/components/systems-page/ExampleSystemsSection";
-import { EngineeredNotPackagedSection } from "@/components/systems-page/EngineeredNotPackagedSection";
 import { UnderTheSurfaceSection } from "@/components/systems-page/UnderTheSurfaceSection";
-import { SystemsCTA } from "@/components/systems-page/SystemsCTA";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { constructMetadata, getBreadcrumbSchema } from "@/lib/seo";
@@ -40,12 +36,8 @@ export default function SystemsPage() {
       <Navbar />
       <SystemsHero />
       <SystemArchitectureSection />
-      <CoreCapabilitiesConsole />
-      <SystemBuilderSection />
       <ExampleSystemsSection />
-      <EngineeredNotPackagedSection />
       <UnderTheSurfaceSection />
-      <SystemsCTA />
       <Footer />
     </main>
   );
